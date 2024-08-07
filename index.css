@@ -176,7 +176,7 @@ body {
 }
 
 .body-section2 {
-  background-image: url("/images/section2.jpg");
+  background-image: url("images/section2.jpg");
   background-size: cover;
   background-position: left center;
   background-attachment: fixed;
@@ -221,6 +221,7 @@ body {
   text-align: center;
   align-content: center;
   color: rgb(238, 15, 15);
+  font-size: 0.5rem;
 }
 
 .update-list {
@@ -282,7 +283,7 @@ body {
   text-align: center;
 }
 
-.news_update-office-text::before {
+/* .news_update-office-text::before {
   content: "";
   display: inline-block;
   background: url("./thumbnail/tag.png");
@@ -290,7 +291,7 @@ body {
   width: 15px;
   background-size: contain;
   background-repeat: no-repeat;
-}
+} */
 
 .news_update-title-text {
   color: #04b6ec;
@@ -568,13 +569,14 @@ body {
   }
   .footer-left-container h,
   .footer-right-container h {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
 
-  .footer-left-container,
+  .footer-left-container p,
   .footer-right-container p {
     font-size: 0.5rem;
     color: white;
+    line-height: 1rem;
   }
 
   .hotline-number {
