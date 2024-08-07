@@ -176,8 +176,7 @@ body {
 }
 
 .body-section2 {
-  /*background-image: url("images/section2.jpg");*/
-  background: red;
+  background: url("images/section2.jpg");
   background-size: cover;
   background-position: left center;
   background-attachment: fixed;
