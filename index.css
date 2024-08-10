@@ -20,17 +20,28 @@
   --blue4-opa: hsla(190, 77%, 88%);
 }
 
-body {
+/* body {
   height: auto;
   width: 100%;
-}
+} */
 
-.header-nav-bar {
+.header-nav-bar {  
+  display: flex;
   width: 100%;
   background: var(--blue1);
   position: fixed;
   top: 0;
   z-index: 100;
+}
+
+.header-title-section{
+  position: relative;
+  display: flex;
+  height: 90px;
+  width: 100%;
+  list-style: none;
+  padding: 0 50px;
+
 }
 
 .header-nav-list {
@@ -40,6 +51,7 @@ body {
   width: 100%;
   list-style: none;
   padding: 0 50px;
+  transition: all 0.3s ease-in-out;
 }
 
 .header-title {
@@ -49,6 +61,8 @@ body {
   justify-content: center;
   line-height: 1.7rem;
   padding-left: 10px;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
 }
 .img-seal {
   padding: 2px 2px;
@@ -70,6 +84,8 @@ body {
   position: relative;
   justify-content: center;
   align-content: center;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
 }
 .nav-link {
   height: 100%;
@@ -78,11 +94,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 0 10px;
   font-size: 1rem;
   font-weight: 350;
   box-sizing: border-box;
   transition: 0.2s linear;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
 }
 
 .nav-link:hover {
@@ -107,27 +125,12 @@ body {
   overflow: scroll;
   background: #fff;
   visibility: hidden;
-  opacity: 0;
 }
 
 .nav-barangay:hover ul.brgy-nav-list {
   visibility: visible;
-  opacity: 1;
 }
 
-.brgy-nav-item:active ul.brgy-nav-list {
-  visibility: hidden;
-  opacity: 0;
-}
-
-.brgy-nav-list:active ul.brgy-nav-list {
-  visibility: hidden;
-  opacity: 0;
-}
-.brgy-link:active ul.brgy-nav-list {
-  visibility: hidden;
-  opacity: 0;
-}
 .brgy-nav-item {
   list-style: none;
   width: 150px;
@@ -143,7 +146,6 @@ body {
   justify-content: flex-start;
   font-size: 1rem;
   font-weight: 500;
-  transition: 0.2s linear;
   padding: 2px;
   padding-left: 10px;
 }
@@ -155,11 +157,34 @@ body {
   border-radius: 2px;
 }
 
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger-open .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger-open .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-open .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.bar {
+  height: 2px;
+  width: 27px;
+  background: white;
+  margin: 5px 0;
+  opacity: 0.8;
+  transition: all 0.3s;
+}
 .body-section1 {
   position: relative;
   background: linear-gradient(transparent, #3b9be9);
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   padding-top: 100px;
 }
 
@@ -181,7 +206,7 @@ body {
   background-position: left center;
   background-attachment: fixed;
   height: 100vh;
-    width: auto;
+  width: auto;
 }
 .body-sec2-container {
   display: flex;
@@ -222,7 +247,7 @@ body {
   text-align: center;
   align-content: center;
   color: rgb(238, 15, 15);
-  font-size: 0.5rem;
+  font-size: 1rem;
 }
 
 .update-list {
@@ -427,15 +452,17 @@ body {
   letter-spacing: 2px;
 }
 
-@media (max-width: 480px) {
-  .header-nav-item {
-    display: none;
+/* ANIMATION  */
+
+
+
+/* This is for Cellphone Screen*/
+@media (max-width: 1100px) {
+  .header-nav-bar{
+    position: fixed;
   }
 
-  .header-nav-list {
-    padding: 5px 10px;
-  }
-
+/* This is for Logo and Title*/
   .img-seal {
     height: 70px;
     width: 70px;
@@ -448,10 +475,129 @@ body {
     font-size: 1.7rem;
   }
 
+  /* This is for Hamburger Menu*/
+  .hamburger{
+    margin: auto;
+    display: block;
+    margin-right: 20px;
+  }
+
+  .hamburger-open .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .hamburger-open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger-open .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .bar {
+    height: 2px;
+    width: 27px;
+    background: white;
+    margin: 5px 0;
+    opacity: 0.8;
+    transition: all 0.3s;
+  }
+
+
+    /* This is for Pop-Up Nav Menu*/
+  .search-box{
+    display: none;
+  }
+
+  .header-nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    z-index: 9999;
+    background: grey;
+    width:190px;
+    height: auto;
+    right: -200px;
+    top: 90px;
+    padding: 10px 0px; 
+   }
+
+.nav-open{
+  right: 0px !important;
+      }
+
+  .header-nav-item{
+    height:auto;
+    width: 100%;
+  }
+
+  .header-nav-item  button{
+    width: 80px;
+    margin-left: 10px;
+    color: black;
+  }
+
+  .nav-link{
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 5px 10px;
+    font-size: 1rem;
+    font-weight: 350;
+    transition: 0.2s linear;
+    padding-left: 10px;
+  }
+
+      /* This is for BRGY LIST*/
+
+      .nav-barangay{
+        position: relative;
+      }
+  .brgy-nav-list {
+    position: absolute;
+    transform: translateY(-40px);
+    right: 90%;
+    width: 170px;
+    height: 250px;
+    overflow:visible;
+    background: grey;
+    z-index: 999;
+
+}
+
+  .nav-barangay:hover ul.brgy-nav-list {
+  }
+  
+  .brgy-nav-item {
+    list-style: none;
+    width: 150px;
+    background: grey;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .brgy-link {
+    height: 100%;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 2px;
+    padding-left: 10px;
+  }
+
+    /* This is for Section1*/
   .body-section1 {
     height: 50vh;
   }
 
+    /* This is for Section2*/
   .body-section2 {
     height: auto;
   }
@@ -468,6 +614,7 @@ body {
   .sec2-left-title,
   .sec2-right-title {
     width: 95vw;
+    font-size: 0.5rem;
   }
 
   .sec2-left-container,
@@ -586,4 +733,6 @@ body {
     word-spacing: 1em;
     letter-spacing: 2px;
   }
+
+
 }
