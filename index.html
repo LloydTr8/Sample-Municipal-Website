@@ -17,13 +17,15 @@
   <body>
 
       <div class="header-nav-bar">
-        <ul class="header-nav-list">
+        <div class="header-title-section">
         <div class="header-seal"><img src="./images/Ph_seal_Santa_Cruz_Occ_Mindoro.png" class="img-seal"></div>
         <div class="header-title">
           <h2>SAMPLE WEBSITE OF</h2>
           <h1>SANTA CRUZ</h1>
         </div>
-        <li class="header-nav-item"><a href="#" class="nav-link">Home</a>
+        </div>
+        <ul class="header-nav-list">
+        <li class="header-nav-item"><a href="#" class="nav-link">Home</a></li>
         <li class="header-nav-item nav-barangay"><a href="#" class="nav-link ">Barangay</a>
           <ul class="brgy-nav-list">
             <li class="brgy-nav-item"><a href="#" class="brgy-link">Alacaak</a></li>
@@ -37,7 +39,6 @@
             <li class="brgy-nav-item"><a href="#" class="brgy-link">Pinagturilan</a></li>
             <li class="brgy-nav-item"><a href="#" class="brgy-link">Poblacion 1</a></li>
             <li class="brgy-nav-item"><a href="#" class="brgy-link">Poblacion 2</a></li>
-
           </ul>
         </li>
         <li class="header-nav-item"><a href="#" class="nav-link">Offices</a></li>
@@ -47,20 +48,20 @@
         <li class="header-nav-item"><a href="#" class="nav-link">Contact Us</a></li>
         <li class="header-nav-item"><input class="search-box"  placeholder="Search"></li>
         <li class="header-nav-item"><button class="search-btn">Search</li>
-        <ul>
-        </ul>
+        </ul>       
+        <div class="hamburger">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
       </div>
-
+    <!-- this section can be for slides -->
   <section class="body-section1">
   <div class="body-sec1-container">
-
-
-    <!-- this page can be for slides -->
+    <!-- slides contents here -->
   </div>
   </section>
-
-
-
+    <!-- this section is for updates etc... -->
   <section class="body-section2">
   <div class="body-sec2-container" >
     <div class="sec2-left-container">
@@ -153,7 +154,7 @@
 
 
 
-
+    <!-- this section is for addtional updates or services etc... -->
 <section class="body-bot-section">
   <div class="bot-section-container">
   <div class="footer-container">
@@ -163,6 +164,8 @@
     <p> sample_email@sample.com</p>
     <p> This is a sample website. All images are belong to the rightfull owner. No copyright infringement intended.</p>
   </div>
+  
+    <!-- this sectin is for Contact or other links etc... -->
   <div class="footer-right-container">
     <h>Hotline Numbers</h>
     <p> Mayor's Office:<span class="hotline-number"> 0912-1234-567</span></p>
@@ -174,4 +177,16 @@
   </div>
 </section>
 </body>
+
+<script>
+    const navEl = document.querySelector(".header-nav-list");
+    const hamburgerEl = document.querySelector(".hamburger");
+
+    hamburgerEl.addEventListener("click", () => {
+      navEl.classList.toggle("nav-open");
+      hamburgerEl.classList.toggle("hamburger-open");
+    });
+
+
+</script>
 </html>
