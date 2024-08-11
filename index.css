@@ -20,11 +20,6 @@
   --blue4-opa: hsla(190, 77%, 88%);
 }
 
-/* body {
-  height: auto;
-  width: 100%;
-} */
-
 .header-nav-bar {  
   display: flex;
   width: 100%;
@@ -120,9 +115,8 @@
 
 .brgy-nav-list {
   position: absolute;
-  width: 170px;
-  height: 250px;
-  overflow: scroll;
+  width: auto;
+  height:auto;
   background: #fff;
   visibility: hidden;
 }
@@ -153,7 +147,7 @@
 .brgy-link:hover {
   color: blue;
   backdrop-filter: blur(8px);
-  background-color: rgba(228, 228, 228, 1);
+  background-color: rgba(228, 228, 228, .7);
   border-radius: 2px;
 }
 
@@ -460,13 +454,21 @@
 @media (max-width: 1100px) {
   .header-nav-bar{
     position: fixed;
+    display: flex;
+    align-items: center;
   }
 
 /* This is for Logo and Title*/
-  .img-seal {
-    height: 70px;
-    width: 70px;
-  }
+.header-seal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-seal {
+  height: 70px;
+  width: 70px;
+}
 
   .header-title h2 {
     font-size: 1rem;
@@ -510,16 +512,14 @@
   .header-nav-list {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
     position: absolute;
-    z-index: 9999;
     background: grey;
     width:190px;
     height: auto;
     right: -200px;
     top: 90px;
     padding: 10px 0px; 
+    border-radius: 2px;
    }
 
 .nav-open{
@@ -529,61 +529,91 @@
   .header-nav-item{
     height:auto;
     width: 100%;
+
   }
 
-  .header-nav-item  button{
-    width: 80px;
-    margin-left: 10px;
-    color: black;
+  .nav-link:hover {
+  color: blue;
+  backdrop-filter: blur(8px);
+  background-color: rgba(228, 228, 228, .7);
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+  .search-btn{
+    width: 100%;
+    color: white;
+    padding: 5px 10px;
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    font-size: 1rem;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .search-btn:hover {
+    color: blue;
+    backdrop-filter: blur(8px);
+    background-color: rgba(228, 228, 228, .7);
+    border-radius: 2px;
+    font-weight: 600;
   }
 
   .nav-link{
-    height: 100%;
-    width: 100%;
-    text-decoration: none;
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
     padding: 5px 10px;
     font-size: 1rem;
     font-weight: 350;
     transition: 0.2s linear;
-    padding-left: 10px;
+
+  }
+          
+  .nav-barangay:hover ul.brgy-nav-list {
+    visibility: visible;
+
   }
 
       /* This is for BRGY LIST*/
 
-      .nav-barangay{
+      /* .nav-barangay{
         position: relative;
+        z-index: 950;
+
+      } */
+        .brgy-nav-list {
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          width: 200px;
+          height:auto;
+          transform: translateY(-35px);
+          right: 100%;
+          visibility: hidden;
+          border-radius: 2px;
+          background: grey;
+          overflow: hidden;
+          border: 1px solid rgba(0, 0, 0, .1);
+        }
+
+        .brgy-nav-item {
+          list-style: none;
+          width: auto;
+          background: grey;
+        }
+
+        .brgy-link:hover{
+        font-weight: 600;
       }
-  .brgy-nav-list {
-    position: absolute;
-    transform: translateY(-40px);
-    right: 90%;
-    width: 170px;
-    height: 250px;
-    overflow:visible;
-    background: grey;
-    z-index: 999;
-
-}
-
-  .nav-barangay:hover ul.brgy-nav-list {
-  }
-  
-  .brgy-nav-item {
-    list-style: none;
-    width: 150px;
-    background: grey;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-  }
 
   .brgy-link {
     height: 100%;
     text-decoration: none;
-    color: black;
+    color: white;
     display: flex;
     justify-content: flex-start;
     font-size: 1rem;
